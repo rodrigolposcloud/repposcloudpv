@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Permisos por Rol</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+body { background:#f4f6f9; }
+.card { border-radius:10px; }
+</style>
+
+<script>
+// ================= CATÁLOGOS =================
+let roles = [
+    {id:1, nombre:"ADMINISTRADOR"},
+    {id:2, nombre:"CAJERO"},
+    {id:3, nombre:"ANALISTA"},
+    {id:4, nombre:"REPARTIDOR"}
+];
+
+let menus = [
+    {id:1, nombre:"Ventas"},
+    {id:2, nombre:"Productos"},
+    {id:3, nombre:"Clientes"},
+    {id:4, nombre:"Reportes"},
+    {id:5, nombre:"Configuración"}
+];
+
+let submenus = [
+    {id:1, menu:1, nombre:"Nueva Venta"},
+    {id:2, menu:1, nombre:"Historial"},
+    {id:3, menu:2, nombre:"Catálogo"},
+    {id:4, menu:2, nombre:"Inventario"},
+    {id:5, menu:3, nombre:"Clientes"},
+    {id:6, menu:4, nombre:"Ventas Diarias"},
+    {id:7, menu:5, nombre:"Usuarios"},
+    {id:8, menu:5, nombre:"Roles"}
+];
+
+// ================= CARGAR ROLES =================
+function cargarRoles(){
+    roles.forEach(r=>{
+        rol.innerHTML += `<option value="${r.id}">${r.nombre}</option>`;
+    });
+}
+
+// ================= CARGAR MENÚS =================
+function cargarMenus(){
+    let cont = document.getElementById("contenedorMenus");
+    cont.innerHTML = "";
+
+    menus.forEach(m=>{
+        let bloque = `
+        <div class="card mb-2">
+            <div class="card-header">
+                <input type="checkbox"> <strong>${m.nombre}</strong>
+            </div>
+            <div class="card-body">`;
+
+        submenus.filter(s=>s.menu===m.id).forEach(s=>{
+            bloque += `
+            <div class="form-check ms-3">
+                <input class="form-check-input" type="checkbox">
+                <label class="form-check-label">${s.nombre}</label>
+            </div>`;
+        });
+
+        bloque += `</div></div>`;
+        cont.innerHTML += bloque;
+    });
+}
+
+// ================= GUARDAR =================
+function guardarPermisos(){
+    alert("Permisos guardados para el rol seleccionado (simulado)");
+}
+</script>
+</head>
+
+<body onload="cargarRoles(); cargarMenus()">
+
+<div class="container mt-4">
+<div class="card shadow">
+
+<div class="card-header bg-primary text-white">
+<h4>Asignación de Menú por Rol</h4>
+</div>
+
+<div class="card-body">
+<label>Rol</label>
+<select id="rol" class="form-control mb-3"></select>
+
+<div id="contenedorMenus"></div>
+
+<button class="btn btn-success w-100 mt-3" onclick="guardarPermisos()">
+Guardar Permisos
+</button>
+</div>
+
+</div>
+</div>
+
+<footer class="text-center mt-4 text-muted">
+<small>
+© 2026 – Sistema Punto de Venta desarrollado por Rodrigo.  
+Control de accesos por rol.
+</small>
+</footer>
+
+</body>
+</html>

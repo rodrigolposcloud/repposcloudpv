@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="pa_fr_reciboe" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="83a0612d-d29a-496a-9dcf-b9b244c5476a">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="169"/>
+	<parameter name="idegreso" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT * FROM TRANSPERSONAL.PA_FR_EGRESOS WHERE IDEGRESO=$P{idegreso}]]>
+	</queryString>
+	<field name="idegreso" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="idcaja" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="idtipogasto" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="referencia" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fecgasto" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="montogasto" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="concepto" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="observacion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="montoletra" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="anombree" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="5" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="4" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="3" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="369" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="70d0ea6f-50c4-4cf3-80f0-0abbdca2c68d" x="208" y="11" width="353" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Incorporado a la Secretaria de Educación Pública del Estado de Puebla]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="50035867-48c2-40e2-860d-78e6807fc99d" x="399" y="32" width="162" height="20"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Clave SEP21MSU11645]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="d8dd7335-1485-41af-8744-f2abb05e194f" x="8" y="82" width="385" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[RECIBI DE: DESARROLLO TRANSPERSONAL INSTITUTO UNIVERSITARIO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b1c0845e-0b28-4ae8-86aa-b314bc668f1e" x="8" y="114" width="100" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[LA CANTIDAD DE:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="8acf81ac-1d3f-43a0-a814-43b9a90cc237" x="8" y="181" width="125" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[POR CONCEPTO DE:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="a499f36b-cefb-4e63-8726-837e1c9bf2f1" x="8" y="284" width="194" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOMBRE Y FIRMA DE QUIEN RECIBE]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="4047540c-cf21-4a2f-8c75-1f8a0a4317f6" x="8" y="280" width="180" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="8fd697dd-9b75-45aa-b0ef-85114ad6c2d9" x="33" y="344" width="100" height="16"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PUEBLA, PUE. A]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="c44604d0-2df9-4459-ae33-580bd8b2f85b" x="133" y="359" width="69" height="1"/>
+			</line>
+			<textField pattern="¤ #,##0.00">
+				<reportElement uuid="5e11ce0f-82aa-457f-828f-457f27d75895" x="108" y="114" width="100" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{montogasto}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="3085d73e-36b6-4480-a769-cf44abf5f0e1" x="8" y="134" width="540" height="37"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{montoletra}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="57955357-a377-41b4-9497-fe31c565e4d4" x="8" y="201" width="540" height="52"/>
+				<textElement textAlignment="Justified">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{concepto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="01d26509-247f-4e73-a633-b8f8ddad7a1a" x="8" y="253" width="212" height="20"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{anombree}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd MMMMM yyyy">
+				<reportElement uuid="80471ceb-6ebe-4861-941f-2a9af5f9a0c1" x="133" y="344" width="100" height="15"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fecgasto}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="368">
+			<staticText>
+				<reportElement uuid="8e1a20e4-1040-46b3-bb80-98a16f026b06" x="218" y="21" width="353" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Incorporado a la Secretaria de Educación Pública del Estado de Puebla]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="2fe124c4-fe94-4c78-9490-d8fbfe3516b3" x="6" y="4" width="555" height="1"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement uuid="e0d6820c-d0f3-40fc-a68e-4f01e8ea5125" x="424" y="41" width="132" height="20"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Clave SEP21MSU11645]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="a2e1f517-eb29-4b7b-a9d2-1a0afe60b2f7" x="14" y="77" width="385" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[RECIBI DE: DESARROLLO TRANSPERSONAL INSTITUTO UNIVERSITARIO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="bdc0dc9d-95de-4657-8dc3-538ba515770f" x="18" y="124" width="100" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[LA CANTIDAD DE:]]></text>
+			</staticText>
+			<textField pattern="¤ #,##0.00">
+				<reportElement uuid="4816496c-e53c-48db-b202-0255dd51367b" x="118" y="124" width="100" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{montogasto}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="541e9973-e7d4-4142-8a57-916fc0bd1a6a" x="19" y="144" width="540" height="35"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{montoletra}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="21ebed36-e7b3-4949-9ea4-fcd50bb7e3d7" x="17" y="189" width="125" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[POR CONCEPTO DE:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="ab1a2ec8-66b6-408f-b9b8-67af8565526c" x="16" y="209" width="540" height="52"/>
+				<textElement textAlignment="Justified">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{concepto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="581c8eaa-e5a8-42ea-a245-7c985a017246" x="19" y="263" width="212" height="20"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{anombree}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="af47188e-4ae4-4764-974a-7e193785be1e" x="21" y="286" width="180" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="ad6a29e4-bc62-4476-81b4-9176cba3c506" x="20" y="289" width="194" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOMBRE Y FIRMA DE QUIEN RECIBE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="85c42fd1-f08e-4744-9fab-e99b40fe1329" x="21" y="319" width="100" height="16"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PUEBLA, PUE. A]]></text>
+			</staticText>
+			<textField pattern="dd MMMMM yyyy">
+				<reportElement uuid="db78d56d-5bda-4312-a161-6c0270cd31e4" x="121" y="319" width="100" height="15"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fecgasto}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="999a3f52-d550-487a-b2fe-c838cb641c15" x="118" y="335" width="69" height="1"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="2" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

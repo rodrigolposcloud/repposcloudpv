@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<!-- Struts 2 App..Punto de venta -->
+	<!-- Arquitectos Rodrigo e IA -->
+	
+    <!-- Modo desarrollo -->
+    <constant name="struts.devMode" value="true"/>
+
+    <!-- i18n -->
+    <constant name="struts.custom.i18n.resources" value="global"/>
+
+  <package name="authentication" namespace="/"
+		extends="struts-default">
+		<interceptors>
+			<interceptor name="authenticationInterceptor"
+				class="Auth.interceptor.AuthenticationInterceptor" />
+			<interceptor-stack name="secureStack">
+				<interceptor-ref name="authenticationInterceptor"></interceptor-ref>
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+
+		<!-- HOME ACTION PUBLICO -->
+
+		<action name="homeaction"  class="Acceso.Control.HomeAction">
+		<interceptor-ref name="defaultStack"/>
+			<result name="success">/acceso/login.jsp</result>
+		</action> 
+
+		<!-- LOGIN SEGURO -->
+		<action name="login" class="Acceso.Control.LoginAction">
+			<interceptor-ref name="secureStack" />
+			<result name="success">/acceso/Home.jsp</result>
+			<result name="inicio">/general/Error.jsp</result>
+			<result name="homeaction" type="redirectAction">
+				<param name="actionName">homeaction</param>
+				<param name="namespace">/</param>
+			</result>			
+		</action> 
+
+		<!-- Home (Menu de Opciones) -->
+		<action name="homesdo">
+		<interceptor-ref name="defaultStack"/>
+			<result name="success">/acceso/Home.jsp</result>
+		</action>
+
+
+		<!-- Logout -->
+		<action name="logout" class="Acceso.Control.LogoutAction">
+		<interceptor-ref name="defaultStack"/>
+			<result name="success">/acceso/login.jsp</result>
+		</action>
+
+		<!-- Welcome Principal -->
+		<action name="informaciondo">
+			<result name="success">/acceso/Informacion.jsp</result>
+		</action> 		
+
+		<action name="suscripcionesdo">
+			<result name="success">/acceso/Suscripciones.jsp</result>
+		</action> 		
+
+		<!-- Registrar Subcripciones -->
+		<action name="suscripciondo">
+			<result name="success">/Suscripcion/RegSuscripcion.jsp</result>
+		</action> 		
+
+			
+		<!-- Lista de Productos SEGURO-->
+ 		<action name="listaproductosdo" class="productospv.ListaProductosAction">
+		<interceptor-ref name="secureStack"/>
+            <result name="success">/Productos/ListaProductos.jsp</result>
+             <result name="inicio">/acceso/MensajeX.html</result>
+			<result name="homeaction" type="redirectAction">
+				<param name="actionName">homeaction</param>
+				<param name="namespace">/</param>
+			</result>				 
+        </action>
+
+		<!-- Pantalla de Registro de  Productos SEGURO-->
+		<action name="productosaction">
+			<result name="success">/Productos/Productosreg.jsp</result>
+		</action>   
+
+		<!-- Registra Productos SEGURO-->
+  		<action name="productosdo" class="productospv.ProductosAction">
+		<interceptor-ref name="secureStack"/>
+            <result name="success">/general/Mensaje.jsp</result>
+             <result name="inicio">/acceso/MensajeX.html</result>
+			<result name="homeaction" type="redirectAction">
+				<param name="actionName">homeaction</param>
+				<param name="namespace">/</param>
+			</result>				 
+        </action>
+
+		<!--Eliminar Productos SEGURO-->
+ 		<action name="eliminarProducto" class="productospv.EliminarProdAction">
+		<interceptor-ref name="secureStack"/>
+            <result name="success">/general/MensajeE.jsp</result>
+             <result name="inicio">/acceso/MensajeX.html</result>
+				<result name="homeaction" type="redirectAction">
+				<param name="actionName">homeaction</param>
+				<param name="namespace">/</param>
+			</result>			 
+        </action>
+
+
+		<!-- lista de Ventas SEGURO-->
+ 		<action name="listventasdo" class="ventaspv.ListaVentasAction">
+		<interceptor-ref name="secureStack"/>
+            <result name="success">/Ventas/ListaVentas.jsp</result>
+             <result name="inicio">/acceso/MensajeX.html</result>
+			<result name="homeaction" type="redirectAction">
+				<param name="actionName">homeaction</param>
+				<param name="namespace">/</param>
+			</result>				 
+        </action>		
+
+		<!-- CARGA Catalogo de Productos y clientes para ventas -->		
+ 		<action name="ventasdo" class="ventaspv.ListCatalogosVentas">
+		<interceptor-ref name="secureStack"/>
+            <result name="success">/Ventas/Ventas.jsp</result>
+             <result name="inicio">/acceso/MensajeX.html</result>
+			<result name="homeaction" type="redirectAction">
+				<param name="actionName">homeaction</param>
+				<param name="namespace">/</param>
+			</result>				 
+        </action>
+
+		<!-- Registra Ventas,Detalle venta, tiket, folioactual SEGURO-->
+ 		<action name="ventasaction" class="ventaspv.VentasAction">
+		<interceptor-ref name="secureStack"/>
+		<result name="verTicket" type="redirectAction">
+			<param name="actionName">verTicketVenta</param>
+			<param name="folioventa">${folioventa}</param>
+		</result>             
+             <result name="inicio">/acceso/MensajeX.html</result>
+        </action>
+
+		<!--Cancelar ventas , estatus a C -->
+ 		<action name="cancelarVenta" class="ventaspv.CancelaVentasAction">
+		<interceptor-ref name="secureStack"/>
+            <result name="success">/general/MensajeC.jsp</result>
+             <result name="inicio">/acceso/MensajeX.html</result>
+				<result name="homeaction" type="redirectAction">
+				<param name="actionName">homeaction</param>
+				<param name="namespace">/</param>
+			</result>			 
+        </action>
+
+		<!--Ver tiket de venta en pdf , enviar por correo,watss,imprimir y descargar-->
+		<!-- este action visuliza el tiket en navegador web,pero toma el adobe acrobat -->
+
+		<!-- =============================== -->
+		<!-- VER VISOR -->
+		<!-- =============================== -->
+		<action name="verTicketVenta" class="servicepv.VerTicketVentaAction">
+			<result name="success">/Ventas/VerTicketVenta.jsp</result>
+		</action>
+
+		<!-- =============================== -->
+		<!-- STREAM PDF -->
+		<!-- =============================== -->
+		<action name="descargarTicketPdf" class="servicepv.DescargarTicketPdfAction">
+
+			<result name="success" type="stream">
+				<param name="contentType">application/pdf</param>
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition">
+					inline;filename="${fileName}"
+				</param>
+				<param name="bufferSize">1024</param>
+			</result>
+
+			<result name="error">/acceso/MensajeX.html</result>
+		</action>
+
+		<!-- =============================== -->
+		<!-- ENVIA POR CORREO EL TICKET -->
+		<!-- =============================== -->
+		<action name="enviarCorreoTicket"
+				class="servicepv.EnviarCorreoTicket">
+				<result name="success" type="redirectAction">
+					<param name="actionName">verTicketVenta</param>
+					<param name="folioventa">${folioventa}</param>
+				</result>
+		</action>
+
+
+
+		<!-- Lista de Clientes SEGURO-->
+ 		<action name="listaclientesdo" class="clientespv.ListaClientesAction">
+		<interceptor-ref name="secureStack"/>
+            <result name="success">/Clientes/ListaClientes.jsp</result>
+             <result name="inicio">/acceso/MensajeX.html</result>
+			<result name="homeaction" type="redirectAction">
+				<param name="actionName">homeaction</param>
+				<param name="namespace">/</param>
+			</result>				 
+        </action>
+
+		<!-- Pantalla de Registro de  Clientes SEGURO-->
+		<action name="clientesdo">
+			<result name="success">/Clientes/ClientesReg.jsp</result>
+		</action>   
+
+		<!-- Registra Clientes SEGURO-->
+  		<action name="clientesAction" class="clientespv.ClientesAction">
+		<interceptor-ref name="secureStack"/>
+            <result name="success">/general/MensajeCL.jsp</result>
+             <result name="inicio">/acceso/MensajeX.html</result>
+			<result name="homeaction" type="redirectAction">
+				<param name="actionName">homeaction</param>
+				<param name="namespace">/</param>
+			</result>				 
+        </action>
+
+		<!--Eliminar Clientes SEGURO-->
+ 		<action name="eliminarCliente" class="clientespv.EliminaClienteAction">
+		<interceptor-ref name="secureStack"/>
+            <result name="success">/general/MensajeCE.jsp</result>
+             <result name="inicio">/acceso/MensajeX.html</result>
+				<result name="homeaction" type="redirectAction">
+				<param name="actionName">homeaction</param>
+				<param name="namespace">/</param>
+			</result>			 
+        </action>
+
+		<!-- Pantalla de Registro Mi Empresa-->
+		<action name="miempresado" class="miempresa.ConMiempresaAction">
+		<interceptor-ref name="secureStack"/>
+            <result name="success">/MiEmpresa/Miempresareg.jsp</result>
+             <result name="inicio">/acceso/MensajeX.html</result>
+			<result name="homeaction" type="redirectAction">
+				<param name="actionName">homeaction</param>
+				<param name="namespace">/</param>
+			</result>				 
+        </action>
+
+		<!-- Pantalla de Informe de venta SEGURO-->
+		<action name="informedo">
+			<result name="success">/Informes/InformeVentas.jsp</result>
+		</action>   
+
+		<!-- Ejecuta Informe de venta SEGURO-->
+		<action name="informeaction" class="Informes.InformeAction">
+		<interceptor-ref name="secureStack"/>
+            <result name="success">//Informes/InformeVentas.jsp</result>
+             <result name="inicio">/acceso/MensajeX.html</result>
+			<result name="homeaction" type="redirectAction">
+				<param name="actionName">homeaction</param>
+				<param name="namespace">/</param>
+			</result>				 
+        </action>
+
+
+
+    </package>
+
+</struts>

@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="pa_fr_recibo" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="14f722b5-9ca4-4393-91d8-5a9ea6de4e74">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="510"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT * FROM PA_FR_INGRESO WHERE IDINGRESO=2]]>
+	</queryString>
+	<field name="idingreso" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="idcaja" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="idtipoingreso" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="referenciai" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fecingresoi" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="montoi" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="conceptoi" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="observacioni" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="montoletrai" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="anombrei" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="matricula" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="idalumno" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="5" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="4" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="347" splitType="Stretch">
+			<rectangle radius="10">
+				<reportElement uuid="ffb2dc38-e947-4522-9888-ebef0ee7d2ca" x="0" y="204" width="427" height="113"/>
+			</rectangle>
+			<rectangle radius="10">
+				<reportElement uuid="3b9631a5-fa7f-44d2-8e90-c27cd54b6fef" x="427" y="134" width="123" height="20" backcolor="#CCCCCC"/>
+			</rectangle>
+			<rectangle radius="10">
+				<reportElement uuid="eb03eca9-647f-4042-b605-6ff66542c9ec" x="381" y="317" width="170" height="27"/>
+			</rectangle>
+			<rectangle radius="10">
+				<reportElement uuid="8cfe4210-38a7-4ba0-a80e-55ce62a852f6" x="427" y="184" width="123" height="20" backcolor="#CCCCCC"/>
+			</rectangle>
+			<rectangle radius="10">
+				<reportElement uuid="de59fb5d-2e27-4181-9f49-1ad2a73843c3" x="0" y="184" width="427" height="20" backcolor="#CCCCCC"/>
+			</rectangle>
+			<rectangle radius="10">
+				<reportElement uuid="4221cb52-b0a2-4e55-ad7b-6277a16bab53" x="0" y="83" width="427" height="101"/>
+			</rectangle>
+			<rectangle radius="10">
+				<reportElement uuid="f671ff11-7ae9-45fb-a24f-a806b239311f" x="427" y="83" width="123" height="20" backcolor="#CCCCCC"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="46d24ee3-4680-4c02-82e4-d59f659655f0" x="14" y="93" width="48" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOMBRE:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b836f4fc-93ca-491e-9258-1b71a1011ce3" x="297" y="3" width="272" height="20"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[TRANSPERSONAL INSTITUTO UNIVERSITARIO A.C.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="680748ea-bfc8-44b2-8b0e-cabcad41aa5e" x="393" y="23" width="172" height="39"/>
+				<textElement/>
+				<text><![CDATA[Prolongación 31 Poniente No. 39 Col. nueva Antequera Puebla, Pue. Tels: +52(222) 237 2535 ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="55363821-91dc-4c0e-8fc8-50f6df591ced" x="410" y="63" width="140" height="20"/>
+				<textElement/>
+				<text><![CDATA[www.transpersonal.com.mx]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c2b65038-90ec-47b2-b2ee-d9c90be75ae1" mode="Transparent" x="450" y="83" width="80" height="20" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[RECIBO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="94ee34ce-28bc-410f-91df-93722ef7fca3" x="153" y="184" width="116" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[POR CONCEPTO DE: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="3c8f6e2a-62ff-4599-a454-6ca60129a130" x="14" y="297" width="81" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[EXACTAMENTE:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="18f0be2c-6bfd-4b18-9e45-b6a7d43c88ad" x="450" y="184" width="80" height="20"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[IMPORTE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="2f1703ca-d822-4110-912e-be5a0c33ca42" x="388" y="324" width="39" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[TOTAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="39d16d22-4de3-4b9f-b77f-7a21603c3b7e" x="95" y="324" width="240" height="20"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ESTE RECIBO NO ES COMPROBANTE FISCAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="24e49597-fab3-4c73-ad6f-31d5bb31c92a" mode="Transparent" x="450" y="134" width="80" height="20" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[FECHA]]></text>
+			</staticText>
+			<rectangle radius="10">
+				<reportElement uuid="63f5c349-0792-4dbc-b44c-7315a5e4209d" x="427" y="103" width="123" height="31"/>
+			</rectangle>
+			<rectangle radius="10">
+				<reportElement uuid="9fe96267-d304-4dee-9812-85a90813a3dc" x="427" y="154" width="123" height="30"/>
+			</rectangle>
+			<rectangle radius="10">
+				<reportElement uuid="c058951f-041e-4384-ae21-c3e565803a18" x="428" y="204" width="122" height="113"/>
+			</rectangle>
+			<textField pattern="MM/dd/yyyy">
+				<reportElement uuid="f9a0b7b3-63e6-4b8c-8331-03c48d1d0c5c" x="432" y="158" width="119" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fecingresoi}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="27eda55a-923c-4474-82ab-06049e1a93f4" x="14" y="134" width="379" height="20"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{anombrei}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="2fc0cd86-6d82-4f83-b787-db427ec7b561" stretchType="RelativeToBandHeight" x="14" y="219" width="396" height="68"/>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{conceptoi}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="8e9dc14f-2a5b-42ea-8842-29ea29ad25ce" x="107" y="295" width="303" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{montoletrai}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0.00">
+				<reportElement uuid="3d750728-77cf-4196-aa7a-a16420274294" x="430" y="219" width="120" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{montoi}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0.00">
+				<reportElement uuid="aca0aa47-cbbc-4355-86ec-b530ca99e122" x="430" y="321" width="118" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{montoi}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="359">
+			<staticText>
+				<reportElement uuid="751a2ada-acea-4b1e-83fd-112088e455fa" x="297" y="11" width="272" height="20"/>
+				<textElement/>
+				<text><![CDATA[TRANSPERSONAL INSTITUTO UNIVERSITARIO A.C.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="24e10cad-e2bc-41dc-89cd-dd75e9b032ce" x="370" y="28" width="172" height="39"/>
+				<textElement/>
+				<text><![CDATA[Prolongación 31 Poniente No. 39 Col. nueva Antequera Puebla, Pue. Tels: +52(222) 237 2535 ]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="e1fd68db-859b-4a52-aeab-0cdc41362799" x="9" y="9" width="555" height="1"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<rectangle radius="10">
+				<reportElement uuid="2eeddb2d-0da7-47ff-a71b-cfd8f07535f3" x="3" y="87" width="427" height="101"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="8c5d8c2b-aeeb-4176-9b25-17b616169a3b" x="402" y="67" width="140" height="20"/>
+				<textElement/>
+				<text><![CDATA[www.transpersonal.com.mx]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="782c10b3-3a43-464d-b4e3-e53fd48d36e9" x="14" y="96" width="48" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOMBRE:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="42b535e6-606d-495e-b3bd-046fb0d95888" x="17" y="116" width="379" height="20"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{anombrei}]]></textFieldExpression>
+			</textField>
+			<rectangle radius="10">
+				<reportElement uuid="346d66df-83c0-41ad-bf8c-19d4f29bca72" x="431" y="87" width="123" height="20" backcolor="#CCCCCC"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="c44fd079-edc8-40e0-827b-3f4dd65cc049" mode="Transparent" x="456" y="90" width="80" height="17" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[RECIBO]]></text>
+			</staticText>
+			<rectangle radius="10">
+				<reportElement uuid="813f2cc7-8ef4-4713-a644-269e6c20fecb" x="432" y="107" width="123" height="31"/>
+			</rectangle>
+			<rectangle radius="10">
+				<reportElement uuid="4c55f435-58b7-4903-b4c1-f4cdb9fe2312" x="432" y="138" width="123" height="20" backcolor="#CCCCCC"/>
+			</rectangle>
+			<rectangle radius="10">
+				<reportElement uuid="3cd91950-a4ef-4684-85c8-c400ecbbac47" x="431" y="158" width="123" height="30"/>
+			</rectangle>
+			<textField pattern="MM/dd/yyyy">
+				<reportElement uuid="efbd3e89-c067-46e3-a172-edd6b8077104" x="435" y="163" width="119" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fecingresoi}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="7180cd45-d0fc-46fc-b544-a0cc4daa3152" mode="Transparent" x="456" y="141" width="80" height="17" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[FECHA]]></text>
+			</staticText>
+			<rectangle radius="10">
+				<reportElement uuid="bdee8f42-97a1-48b7-8723-8d3baeb246e4" x="3" y="188" width="427" height="20" backcolor="#CCCCCC"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="0718b56d-55ca-4877-8e4a-0e22001476ee" x="171" y="191" width="116" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[POR CONCEPTO DE: ]]></text>
+			</staticText>
+			<rectangle radius="10">
+				<reportElement uuid="fa7397f6-eaab-4a69-85dc-97892780a32d" x="431" y="188" width="123" height="20" backcolor="#CCCCCC"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="23be471d-2d36-471c-86b2-f72bb049e7df" x="458" y="191" width="80" height="17"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[IMPORTE]]></text>
+			</staticText>
+			<rectangle radius="10">
+				<reportElement uuid="a4c17ec7-9f86-43d7-b4a6-7f0ab5eab7ae" x="2" y="208" width="427" height="113"/>
+			</rectangle>
+			<rectangle radius="10">
+				<reportElement uuid="1eb7ef31-4f25-4585-a4d1-a6ba763a55f0" x="430" y="208" width="122" height="113"/>
+			</rectangle>
+			<textField>
+				<reportElement uuid="51925c11-be7d-44b3-8fde-328c1c6a2204" stretchType="RelativeToBandHeight" x="31" y="227" width="379" height="68"/>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{conceptoi}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="85c91618-3a21-463f-9d82-c87dafb51144" x="24" y="307" width="81" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[EXACTAMENTE:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="cacba77d-111c-4d6c-b058-a63329630ce1" x="117" y="305" width="303" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{montoletrai}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="bcc78ead-8725-48ea-92eb-f75a6c563271" x="105" y="334" width="240" height="20"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ESTE RECIBO NO ES COMPROBANTE FISCAL]]></text>
+			</staticText>
+			<rectangle radius="10">
+				<reportElement uuid="c61107f4-ca66-46e4-9d37-f79fee0489fb" x="383" y="322" width="170" height="27"/>
+			</rectangle>
+			<textField pattern="¤ #,##0.00">
+				<reportElement uuid="46b578f7-b2f7-4819-b684-8defb6cbb5b7" x="440" y="229" width="108" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{montoi}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="cec9d039-2bdb-4ee8-b99f-e3960f902633" x="398" y="331" width="39" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[TOTAL]]></text>
+			</staticText>
+			<textField pattern="¤ #,##0.00">
+				<reportElement uuid="08db5649-8a16-4743-b306-d91d39863562" x="437" y="327" width="118" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{montoi}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="4" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="1" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="2" splitType="Stretch"/>
+	</summary>
+</jasperReport>

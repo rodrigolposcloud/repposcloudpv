@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Clientes - Punto de Venta</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+    body { background-color:#f4f6f9; }
+    .card { border-radius:10px; }
+    input, textarea { font-size:1.05rem; }
+</style>
+
+<script>
+
+
+//================= CLIENTES =================
+const clientes = {
+"0000000000000": {
+id: 0,
+nombre: "PÚBLICO EN GENERAL",
+telefono: "",
+domicilio: ""
+},
+"1000000000001": {
+id: 1,
+nombre: "Juan Pérez",
+telefono: "5512345678",
+domicilio: "Av. Reforma 123"
+},
+"1000000000002": {
+id: 2,
+nombre: "Abarrotes La Esquina",
+telefono: "5598765432",
+domicilio: "Calle Juárez 45"
+}
+};
+
+let clienteActual = clientes["0000000000000"];
+
+
+
+// 🔹 SIMULACIÓN DE BASE DE DATOS
+let clientes = [];
+let contadorID = 1;
+
+// ➕ GUARDAR CLIENTE
+function guardarCliente(){
+    let cliente = {
+        id: contadorID++,
+        codigo: codigo.value,
+        nombre: nombre.value,
+        razon: razon.value,
+        telefono: telefono.value,
+        domicilio: domicilio.value
+    };
+
+    clientes.push(cliente);
+    listarClientes();
+    limpiarFormulario();
+}
+
+// 📋 LISTAR CLIENTES
+function listarClientes(){
+    let tabla = document.getElementById("tablaClientes");
+    tabla.innerHTML = "";
+
+    clientes.forEach(c => {
+        let fila = tabla.insertRow();
+        fila.insertCell(0).innerText = c.id;
+        fila.insertCell(1).innerText = c.codigo;
+        fila.insertCell(2).innerText = c.nombre;
+        fila.insertCell(3).innerText = c.razon;
+        fila.insertCell(4).innerText = c.telefono;
+        fila.insertCell(5).innerText = c.domicilio;
+    });
+}
+
+// 🧹 LIMPIAR
+function limpiarFormulario(){
+    codigo.value="";
+    nombre.value="";
+    razon.value="";
+    telefono.value="";
+    domicilio.value="";
+}
+</script>
+</head>
+
+<body>
+
+<div class="container-fluid mt-4">
+<div class="row">
+
+<!-- FORMULARIO -->
+<div class="col-md-4">
+<div class="card shadow mb-3">
+<div class="card-header bg-primary text-white">
+<h4>Registro de Cliente</h4>
+</div>
+
+<div class="card-body">
+<label>Código de barras del cliente</label>
+<input id="codigo" class="form-control mb-2" placeholder="Escanear o capturar">
+
+<label>Nombre del cliente</label>
+<input id="nombre" class="form-control mb-2">
+
+<label>Razón Social</label>
+<input id="razon" class="form-control mb-2" placeholder="Opcional">
+
+<label>Teléfono</label>
+<input id="telefono" class="form-control mb-2">
+
+<label>Domicilio</label>
+<textarea id="domicilio" class="form-control mb-3" rows="3"></textarea>
+
+<button class="btn btn-success w-100" onclick="guardarCliente()">
+Guardar Cliente
+</button>
+</div>
+</div>
+</div>
+
+<!-- LISTADO -->
+<div class="col-md-8">
+<div class="card shadow">
+<div class="card-header bg-dark text-white">
+<h4>Clientes Registrados</h4>
+</div>
+
+<div class="card-body p-0">
+<table class="table table-striped table-bordered mb-0">
+<thead class="table-light">
+<tr>
+<th>ID</th>
+<th>Código</th>
+<th>Nombre</th>
+<th>Razón Social</th>
+<th>Teléfono</th>
+<th>Domicilio</th>
+</tr>
+</thead>
+<tbody id="tablaClientes"></tbody>
+</table>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- AVISO LEGAL -->
+<footer class="text-center mt-4 text-muted">
+<small>
+© 2026 – Sistema Punto de Venta desarrollado por Rodrigo.  
+La información de clientes es confidencial y de uso exclusivo del negocio.
+</small>
+</footer>
+
+</body>
+</html>
