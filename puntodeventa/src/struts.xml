@@ -257,6 +257,38 @@
 			</result>				 
         </action>
 
+		<!-- Pantalla de Configuration  -->
+		<action name="configurationdo">
+			<result name="success">/Administracion/Configuracion/Configuration.jsp</result>
+		</action> 
+
+		<!-- Administracion de usuarios-->
+ 		<action name="listausuariosdo" class="administracion.usuarios.ListaUsuariosAction">
+		<interceptor-ref name="secureStack"/>
+            <result name="success">/Administracion/Usuarios/ListaUsuarios.jsp</result>
+             <result name="inicio">/acceso/MensajeX.html</result>
+			<result name="homeaction" type="redirectAction">
+				<param name="actionName">homeaction</param>
+				<param name="namespace">/</param>
+			</result>				 
+        </action>
+		
+		<!-- Pantalla de Registro de  Usuarios -->
+		<action name="usuariosdo">
+			<result name="success">/Administracion/Usuarios/Usuarios.jsp</result>
+		</action>  
+		
+		<!-- Registra Usuarios -->
+  		<action name="usuariosAction" class="administracion.usuarios.UsuariosAction">
+		<interceptor-ref name="secureStack"/>
+            <result name="success">/general/MensajeCL.jsp</result>
+             <result name="inicio">/acceso/MensajeX.html</result>
+			<result name="homeaction" type="redirectAction">
+				<param name="actionName">homeaction</param>
+				<param name="namespace">/</param>
+			</result>				 
+        </action>
+
 
 
     </package>

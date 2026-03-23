@@ -259,7 +259,7 @@ footer{
 
         <!-- CONFIGURACION (VISIBLE SOLO PARA ADMIN) -->
         <div class="col-sm-4">
-            <div class="card" onclick="location.href='configuracion.action'">
+            <div class="card" onclick="location.href='configurationdo?idempresa=<%out.print(session.getAttribute("idempresa"));%>'">
                 <span class="glyphicon glyphicon-cog"></span>
                 <h4>Configuración</h4>
             </div>
