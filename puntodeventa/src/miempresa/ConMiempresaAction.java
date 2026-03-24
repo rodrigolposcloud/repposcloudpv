@@ -29,7 +29,7 @@ public class ConMiempresaAction extends ActionSupport {
 	private String estado;
 	private String codpostal;
 	
-	String existe="";
+
 	
 	
 	public String execute() throws Exception{

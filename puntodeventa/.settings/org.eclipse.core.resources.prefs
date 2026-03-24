@@ -1,5 +1,7 @@
 eclipse.preferences.version=1
 encoding//WebContent/Ventas/VerTicketVenta.jsp=UTF-8
+encoding//src/administracion/usuarios/DelUsuariosAction.java=UTF-8
+encoding//src/administracion/usuarios/UpdUsuariosAction.java=UTF-8
 encoding//src/administracion/usuarios/UsuariosAction.java=UTF-8
 encoding//src/servicepv/DescargarTicketPdfAction.java=UTF-8
 encoding//src/servicepv/EnviarCorreoTicket.java=UTF-8

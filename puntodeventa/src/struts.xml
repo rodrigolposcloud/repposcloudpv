@@ -274,15 +274,37 @@
         </action>
 		
 		<!-- Pantalla de Registro de  Usuarios -->
-		<action name="usuariosdo">
+		<action name="usuariosdo" class="administracion.usuarios.ListCatalagosUsuAction">
 			<result name="success">/Administracion/Usuarios/Usuarios.jsp</result>
 		</action>  
 		
-		<!-- Registra Usuarios -->
+		<!-- Registra nuevos Usuarios -->
   		<action name="usuariosAction" class="administracion.usuarios.UsuariosAction">
 		<interceptor-ref name="secureStack"/>
-            <result name="success">/general/MensajeCL.jsp</result>
+            <result name="success">/general/MensajeUS.jsp</result>
              <result name="inicio">/acceso/MensajeX.html</result>
+			<result name="homeaction" type="redirectAction">
+				<param name="actionName">homeaction</param>
+				<param name="namespace">/</param>
+			</result>				 
+        </action>
+
+		<!-- trae Informacion del  usuario para actualizar datos -->
+  		<action name="editarusuario" class="administracion.usuarios.ConUsuarioAction">
+		<interceptor-ref name="secureStack"/>
+            <result name="success">/Administracion/Usuarios/UsuariosUpd.jsp</result>
+             <result name="inicio">/acceso/MensajeX.html</result>
+			<result name="homeaction" type="redirectAction">
+				<param name="actionName">homeaction</param>
+				<param name="namespace">/</param>
+			</result>				 
+        </action>
+
+		<!-- Actualiza informacion del usuario -->
+  		<action name="updusuariosAction" class="administracion.usuarios.UpdUsuariosAction">
+		<interceptor-ref name="secureStack"/>
+			<result name="success">/general/MensajeUS.jsp</result>
+            <result name="inicio">/acceso/MensajeX.html</result>
 			<result name="homeaction" type="redirectAction">
 				<param name="actionName">homeaction</param>
 				<param name="namespace">/</param>
