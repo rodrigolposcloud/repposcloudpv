@@ -17,7 +17,7 @@ public class LoginAction extends ActionSupport {
 	private String idusuario;
 	private String idempresa;
 	private String idrol;
-	String existe="";
+	private String acceso="";
 	
 	
 	public String execute()   throws Exception{
@@ -26,13 +26,13 @@ public class LoginAction extends ActionSupport {
 	       //System.out.println(contrasenia);
 	       LoginDatoAction ad =new LoginDatoAction();
       
-	       existe=ad.validaUsuario(usuario,password);
+	       acceso=ad.validaUsuario(usuario,password);
 	       idusuario = ad.getIdusuario();
 	       idempresa = ad.getIdempresa();
 	       idrol 	 = ad.getIdrol();
 
-	       System.out.println("Existe==Usuario: "+existe);
-	       if (idrol == null) {
+	       System.out.println("Variable acceso==="+acceso);
+	       if (acceso == "incorrecto") {
 	    	   System.out.println("usuario y contrasenia: son invalidos");
 	    	   return "inicio"; 
 	       } else {

@@ -311,6 +311,17 @@
 			</result>				 
         </action>
 
+		<!-- Elimina la informacion del usuario en BD.-->
+  		<action name="eliminarusuario" class="administracion.usuarios.DelUsuariosAction">
+		<interceptor-ref name="secureStack"/>
+			<result name="success">/general/MensajeUS.jsp</result>
+            <result name="inicio">/acceso/MensajeX.html</result>
+			<result name="homeaction" type="redirectAction">
+				<param name="actionName">homeaction</param>
+				<param name="namespace">/</param>
+			</result>				 
+        </action>
+
 
 
     </package>

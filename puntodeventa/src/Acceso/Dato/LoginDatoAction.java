@@ -1,4 +1,9 @@
 package Acceso.Dato;
+/*Inicio POS Cloud
+ *RodrigoIA
+ */
+
+
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -9,114 +14,117 @@ import java.util.Map;
 import com.opensymphony.xwork2.ActionContext;
 import conexion.Conexion;
 import conexion.Util;
-
-/*Inicio POS Cloud
- *RodrigoIA
- */
-
+import org.mindrot.jbcrypt.BCrypt;
 
 public class LoginDatoAction {
-	
-//	private String password;
-	private String idusuario;
-	private String idempresa;
-	private String idrol;
-	private String nombre;
-	private String loguin; 
-	private String estatus; 
-	private String fechacreacion;
-	private String nomempresa;
-	private String razonsocial;
+
+    private String idusuario;
+    private String idempresa;
+    private String idrol;
+    private String nombre;
+    private String loguin; 
+    private String estatus; 
+    private String fechacreacion;
+    private String nomempresa;
+    private String razonsocial;
     private String rfc; 
     private String nombrerol; 
-    private String descripcion; 	
+    private String descripcion; 
+    private String acceso;
 
-	
-public String validaUsuario(String usuario,String password) throws Exception {
-    // declaro el objeto Map , para mapear datos , enviarlos a session
-	Map<String, Object> session = ActionContext.getContext().getSession();
+    public String validaUsuario(String usuario, String password) throws Exception {
 
-		//creo la variable de conexion y variables recordset
-		Conexion con = new Conexion();
-       //Llamamos al metodo que nos crea la conexion 
-       Connection conexion = con.getConexionMYSQL();
-       	Statement set = null; 
-	    ResultSet rs = null;     
+        Map<String, Object> session = ActionContext.getContext().getSession();
 
-			StringBuffer comp = new StringBuffer();
-			comp.append(" SELECT u.idusuario, u.idempresa, u.idrol,u.nombre,u.loguin, u.password, ");
-			comp.append(" u.estatus, u.fechacreacion, e.nomempresa, e.razonsocial, ");
-			comp.append(" e.rfc, r.nombrerol, r.descripcion ");
-			comp.append(" FROM tblusuario AS u ");
-			comp.append(" LEFT JOIN tblempresa AS e ON u.idempresa = e.idempresa ");
-			comp.append(" LEFT JOIN tblrol AS r ON u.idrol = r.idrol ");			
-			comp.append(" WHERE u.loguin='"+usuario+"' and u.password='"+password+"'" );
+        Conexion con = new Conexion();
+        Connection conexion = con.getConexionMYSQL();
 
- 			set = conexion.createStatement();  
-			rs = set.executeQuery(comp.toString()); 
-			System.out.println(" ya paso el  usuario"+comp);
+        Statement set = null; 
+        ResultSet rs = null;     
 
-			try {
-				//
+        String passwordBD = "";
 
-				if ( rs.next())  
-					{
-					idusuario=	Util.getValueWithoutNulls(rs.getString("idusuario"));
-					idempresa=	Util.getValueWithoutNulls(rs.getString("idempresa"));
-					idrol=	Util.getValueWithoutNulls(rs.getString("idrol"));
-					nombre=	Util.getValueWithoutNulls(rs.getString("nombre"));
-					loguin=	Util.getValueWithoutNulls(rs.getString("loguin"));
-					//password=	Util.getValueWithoutNulls(rs.getString("password"));
-					estatus=	Util.getValueWithoutNulls(rs.getString("estatus"));
-					fechacreacion=	Util.getValueWithoutNulls(rs.getString("fechacreacion"));
-					nomempresa=		Util.getValueWithoutNulls(rs.getString("nomempresa"));					
-					razonsocial=	Util.getValueWithoutNulls(rs.getString("razonsocial"));
-					rfc=			Util.getValueWithoutNulls(rs.getString("rfc"));
-					nombrerol=		Util.getValueWithoutNulls(rs.getString("nombrerol"));
-					descripcion=	Util.getValueWithoutNulls(rs.getString("descripcion"));
-					
-					}
-					System.out.println("usuario--"+nombre + "--loguin--"+loguin);
-					System.out.println("idusuario--"+idusuario + "--idempresa--"+idempresa+ "--idrol--"+idrol);
+        StringBuffer comp = new StringBuffer();
+        comp.append(" SELECT u.idusuario, u.idempresa, u.idrol, u.nombre, u.loguin, u.password, ");
+        comp.append(" u.estatus, u.fechacreacion, e.nomempresa, e.razonsocial, ");
+        comp.append(" e.rfc, r.nombrerol, r.descripcion ");
+        comp.append(" FROM tblusuario AS u ");
+        comp.append(" LEFT JOIN tblempresa AS e ON u.idempresa = e.idempresa ");
+        comp.append(" LEFT JOIN tblrol AS r ON u.idrol = r.idrol ");			
+        comp.append(" WHERE u.loguin='" + usuario + "' ");  // 🔥 SOLO USUARIO
 
-					//envio valores a session
-					session.put("idusuario", idusuario);
-					session.put("idempresa", idempresa);					
-					session.put("idrol", idrol);
-					session.put("nombre", nombre);
-					session.put("loguin", loguin);
-					session.put("estatus", estatus);
-					session.put("fechacreacion", fechacreacion);
-					session.put("nomempresa",nomempresa);
-					session.put("razonsocial",razonsocial);
-					session.put("rfc",rfc); 
-					session.put("nombrerol",nombrerol); 
-					session.put("descripcion",descripcion); 	
+        set = conexion.createStatement();  
+        rs = set.executeQuery(comp.toString()); 
 
-							
-				} catch (SQLException e) {
-					System.err.println(e.getMessage());
-					conexion.close();
-				}
+        try {
 
+            if (rs.next()) {
 
+                //  Obtener password encriptado
+                passwordBD = rs.getString("password");
 
-    	finally{
-			try{
-			if(conexion!=null)
-		    {
-				conexion.close();
-				rs.close();
-				set.close();
-			System.out.println("Cierro Conexion y objetos recorset");}
-			}catch (Exception e){
-				System.out.println("Hubo un inconveniente al cerrar la conexi�n...");
-			}
-		}
-  
+                //  VALIDAR PASSWORD CON BCrypt
+                if (BCrypt.checkpw(password, passwordBD)) {
 
-        return idusuario; 
-   }
+                    idusuario = Util.getValueWithoutNulls(rs.getString("idusuario"));
+                    idempresa = Util.getValueWithoutNulls(rs.getString("idempresa"));
+                    idrol = Util.getValueWithoutNulls(rs.getString("idrol"));
+                    nombre = Util.getValueWithoutNulls(rs.getString("nombre"));
+                    loguin = Util.getValueWithoutNulls(rs.getString("loguin"));
+                    estatus = Util.getValueWithoutNulls(rs.getString("estatus"));
+                    fechacreacion = Util.getValueWithoutNulls(rs.getString("fechacreacion"));
+                    nomempresa = Util.getValueWithoutNulls(rs.getString("nomempresa"));					
+                    razonsocial = Util.getValueWithoutNulls(rs.getString("razonsocial"));
+                    rfc = Util.getValueWithoutNulls(rs.getString("rfc"));
+                    nombrerol = Util.getValueWithoutNulls(rs.getString("nombrerol"));
+                    descripcion = Util.getValueWithoutNulls(rs.getString("descripcion"));
+
+                    // SESSION SOLO SI PASSWORD CORRECTO
+                    session.put("idusuario", idusuario);
+                    session.put("idempresa", idempresa);					
+                    session.put("idrol", idrol);
+                    session.put("nombre", nombre);
+                    session.put("loguin", loguin);
+                    session.put("estatus", estatus);
+                    session.put("fechacreacion", fechacreacion);
+                    session.put("nomempresa", nomempresa);
+                    session.put("razonsocial", razonsocial);
+                    session.put("rfc", rfc); 
+                    session.put("nombrerol", nombrerol); 
+                    session.put("descripcion", descripcion);
+                    acceso = "exitoso";
+                    System.out.println("LOGIN OK==="+acceso);
+                    return acceso; // LOGIN OK
+                } else {
+                	acceso = "incorrecto";
+                	System.out.println("PASSWORD INCORRECTO==="+acceso);
+                    return acceso; // PASSWORD INCORRECTO
+                }
+
+            } else {
+            	acceso = "incorrecto";
+            	System.out.println("USUARIO NO EXISTE===="+acceso);
+                return acceso; // USUARIO NO EXISTE
+            }
+
+        } catch (SQLException e) {
+
+            System.err.println(e.getMessage());
+            conexion.close();
+            return "inicio";
+
+        } finally {
+            try {
+                if (conexion != null) {
+                    conexion.close();
+                    rs.close();
+                    set.close();
+                }
+            } catch (Exception e) {
+                System.out.println("Error al cerrar conexión...");
+            }
+        } 
+    }
 
 
 

@@ -62,7 +62,7 @@
         <div class="panel-heading">
             📦 Ventas del Dia a Dia
             
-            <a href="homesdo" class="btn btn-dark btn-sm pull-right">
+            <a href="homesdo?idempresa=<%out.print(session.getAttribute("idempresa"));%>" class="btn btn-dark btn-sm pull-right">
                 - Salir
             </a>
             <a href="ventasdo?idempresa=<%out.print(session.getAttribute("idempresa"));%>" class="btn btn-success btn-sm pull-right">
