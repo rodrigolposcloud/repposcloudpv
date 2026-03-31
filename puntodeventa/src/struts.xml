@@ -323,6 +323,78 @@
         </action>
 
 
+		<!-- Administracion de empresas-->
+ 		<action name="listaempresasdo" class="administracion.empresas.ListaEmpresasAction">
+		<interceptor-ref name="secureStack"/>
+            <result name="success">/Administracion/Empresas/ListaEmpresas.jsp</result>
+             <result name="inicio">/acceso/MensajeX.html</result>
+			<result name="homeaction" type="redirectAction">
+				<param name="actionName">homeaction</param>
+				<param name="namespace">/</param>
+			</result>				 
+        </action>
+
+		<!-- Pantalla de Registro de  Empresas -->
+		<action name="empresasdo" >
+			<result name="success">/Administracion/Empresas/Empresas.jsp</result>
+		</action>  
+
+		<!-- Registra nuevos Empresas -->
+  		<action name="empresasAction" class="administracion.empresas.EmpresasAction">
+		<interceptor-ref name="secureStack"/>
+            <result name="success">/general/MensajeEM.jsp</result>
+             <result name="inicio">/acceso/MensajeX.html</result>
+			<result name="homeaction" type="redirectAction">
+				<param name="actionName">homeaction</param>
+				<param name="namespace">/</param>
+			</result>				 
+        </action>
+		
+		<!-- trae Informacion de la empresa  para actualizar datos -->
+  		<action name="editarempresa" class="administracion.empresas.ConEmpresaAction">
+		<interceptor-ref name="secureStack"/>
+            <result name="success">/Administracion/Empresas/EmpresasUpd.jsp</result>
+             <result name="inicio">/acceso/MensajeX.html</result>
+			<result name="homeaction" type="redirectAction">
+				<param name="actionName">homeaction</param>
+				<param name="namespace">/</param>
+			</result>				 
+        </action>
+
+		<!-- Actualiza informacion de la empresa -->
+  		<action name="updempresasAction" class="administracion.empresas.UpdEmpresasAction">
+		<interceptor-ref name="secureStack"/>
+			<result name="success">/general/MensajeEM.jsp</result>
+            <result name="inicio">/acceso/MensajeX.html</result>
+			<result name="homeaction" type="redirectAction">
+				<param name="actionName">homeaction</param>
+				<param name="namespace">/</param>
+			</result>				 
+        </action>
+
+		<!-- Elimina la informacion del empresa en BD.-->
+  		<action name="eliminarempresa" class="administracion.empresas.DelEmpresasAction">
+		<interceptor-ref name="secureStack"/>
+			<result name="success">/general/MensajeEM.jsp</result>
+            <result name="inicio">/acceso/MensajeX.html</result>
+			<result name="homeaction" type="redirectAction">
+				<param name="actionName">homeaction</param>
+				<param name="namespace">/</param>
+			</result>				 
+        </action>
+
+		<!-- Administracion de roles-->
+ 		<action name="listarolesdo" class="administracion.roles.ListaRolesAction">
+		<interceptor-ref name="secureStack"/>
+            <result name="success">/Administracion/Roles/ListaRoles.jsp</result>
+             <result name="inicio">/acceso/MensajeX.html</result>
+			<result name="homeaction" type="redirectAction">
+				<param name="actionName">homeaction</param>
+				<param name="namespace">/</param>
+			</result>				 
+        </action>
+
+
 
     </package>
 

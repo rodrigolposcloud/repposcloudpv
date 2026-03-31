@@ -142,13 +142,13 @@ font-size:13px;
 </div>
 
 <br>
- <p>
+
+ <div class="alert alert-success" role="alert">
  Todos los Datos son obligatorios. 
  Seran utilizados en :
  a) Ticket de Venta.
  b) Facturacion Electronica.
- 
- </p>
+</div>
 
 <br>
 
