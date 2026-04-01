@@ -241,6 +241,19 @@
 			</result>				 
         </action>
 
+		<!-- actualizar informacion de  Mi Empresa-->
+		<action name="miempresaupd" class="miempresa.UpdMiempresaAction">
+		<interceptor-ref name="secureStack"/>
+            <result name="success">/MiEmpresa/MensajeMIEM.jsp</result>
+             <result name="inicio">/acceso/MensajeX.html</result>
+			<result name="homeaction" type="redirectAction">
+				<param name="actionName">homeaction</param>
+				<param name="namespace">/</param>
+			</result>				 
+        </action>
+
+
+
 		<!-- Pantalla de Informe de venta SEGURO-->
 		<action name="informedo">
 			<result name="success">/Informes/InformeVentas.jsp</result>
@@ -387,7 +400,56 @@
  		<action name="listarolesdo" class="administracion.roles.ListaRolesAction">
 		<interceptor-ref name="secureStack"/>
             <result name="success">/Administracion/Roles/ListaRoles.jsp</result>
+            <result name="inicio">/acceso/MensajeX.html</result>
+			<result name="homeaction" type="redirectAction">
+				<param name="actionName">homeaction</param>
+				<param name="namespace">/</param>
+			</result>				 
+        </action>
+
+		<!-- Pantalla de Registro de  Roles -->
+		<action name="rolesdo" >
+			<result name="success">/Administracion/Roles/Roles.jsp</result>
+		</action>  
+
+		<!-- Registra nuevos roles -->
+  		<action name="rolesAction" class="administracion.roles.RolesAction">
+		<interceptor-ref name="secureStack"/>
+            <result name="success">/general/MensajeRL.jsp</result>
              <result name="inicio">/acceso/MensajeX.html</result>
+			<result name="homeaction" type="redirectAction">
+				<param name="actionName">homeaction</param>
+				<param name="namespace">/</param>
+			</result>				 
+        </action>
+
+		<!-- trae Informacion del rol para actualizar datos -->
+  		<action name="editaroles" class="administracion.roles.ConRolAction">
+		<interceptor-ref name="secureStack"/>
+            <result name="success">/Administracion/Roles/RolesUpd.jsp</result>
+             <result name="inicio">/acceso/MensajeX.html</result>
+			<result name="homeaction" type="redirectAction">
+				<param name="actionName">homeaction</param>
+				<param name="namespace">/</param>
+			</result>				 
+        </action>	
+
+		<!-- Actualiza informacion del rol -->
+  		<action name="updrolesAction" class="administracion.roles.UpdRolesAction">
+		<interceptor-ref name="secureStack"/>
+			<result name="success">/general/MensajeRL.jsp</result>
+            <result name="inicio">/acceso/MensajeX.html</result>
+			<result name="homeaction" type="redirectAction">
+				<param name="actionName">homeaction</param>
+				<param name="namespace">/</param>
+			</result>				 
+        </action>
+
+		<!-- Elimina la informacion del rol en BD.-->
+  		<action name="eliminaroles" class="administracion.roles.DelRolAction">
+		<interceptor-ref name="secureStack"/>
+			<result name="success">/general/MensajeRL.jsp</result>
+            <result name="inicio">/acceso/MensajeX.html</result>
 			<result name="homeaction" type="redirectAction">
 				<param name="actionName">homeaction</param>
 				<param name="namespace">/</param>

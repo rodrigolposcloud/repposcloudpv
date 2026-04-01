@@ -2,6 +2,15 @@
 	pageEncoding="UTF-8"%>
 <%@page import="com.opensymphony.xwork2.ActionContext"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ page import="java.util.*"%>
+<%
+	
+		Map<String, Object> sessions = ActionContext.getContext().getSession();
+		String idiusuario = ((String) sessions.get("idusuario"));
+		String idempresa = ((String) sessions.get("idempresa"));
+		String idrol = ((String) sessions.get("idrol"));
+%>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -62,7 +71,11 @@ font-size:13px;
  <h5> Registro de Empresa, Comercio, Tienda, Miscelanea, Almacen </h5>
 </div>
 
-<form action="guardarEmpresa" method="post">
+<form role="form" id="miempresaupd" name="miempresaupd" 
+action="miempresaupd" method="POST">
+			<input type="hidden"  name="idempresa" id="idempresa" 
+			value = "<s:property value="idempresa"/>">
+           
 
 <!-- DATOS EMPRESA, COMERCIO, TIENDA, MISCELANEA, ALMACEN -->
 
@@ -70,12 +83,14 @@ font-size:13px;
 
 <div class="col-md-6">
 <label>Nombre Empresa</label>
-<input type="text" name="nomempresa" id="nomempresa"  value="<s:property value="nomempresa"/>"  maxlength="120" class="form-control" required>
+<input type="text" name="nomempresa" id="nomempresa"  
+value="<s:property value="nomempresa"/>"  maxlength="120" class="form-control" required>
 </div>
 
 <div class="col-md-6">
 <label>Razón Social</label>
-<input type="text" name="razonsocial" id="razonsocial"  value="<s:property value="razonsocial"/>"  maxlength="120"  class="form-control" required>
+<input type="text" name="razonsocial" id="razonsocial"  
+value="<s:property value="razonsocial"/>"  maxlength="120"  class="form-control" required>
 </div>
 
 </div>
@@ -84,17 +99,20 @@ font-size:13px;
 
 <div class="col-md-4">
 <label>RFC</label>
-<input type="text" name="rfc" id="rfc"  value="<s:property value="rfc"/>"  maxlength="20"  class="form-control" required>
+<input type="text" name="rfc" id="rfc"  
+value="<s:property value="rfc"/>"  maxlength="20"  class="form-control" required>
 </div>
 
 <div class="col-md-4">
 <label>Teléfono</label>
-<input type="text" name="telefono" id="telefono"  value="<s:property value="telefono"/>"  maxlength="50"  class="form-control" required>
+<input type="text" name="telefono" id="telefono"  
+value="<s:property value="telefono"/>"  maxlength="50"  class="form-control" required>
 </div>
 
 <div class="col-md-4">
 <label>Correo Electrónico</label>
-<input type="email" name="correo" id="correo"  value="<s:property value="correo"/>"  maxlength="120" class="form-control" required>
+<input type="email" name="correo" id="correo"  
+value="<s:property value="correo"/>"  maxlength="120" class="form-control" required>
 </div>
 
 </div>
@@ -107,17 +125,20 @@ font-size:13px;
 
 <div class="col-md-6">
 <label>Calle</label>
-<input type="text" name="domicilio" id="domicilio"  value="<s:property value="domicilio"/>"  maxlength="120" class="form-control" required>
+<input type="text" name="domicilio" id="domicilio"  
+value="<s:property value="domicilio"/>"  maxlength="120" class="form-control" required>
 </div>
 
 <div class="col-md-2">
 <label>Número</label>
-<input type="text" name="numero" id="numero"  value="<s:property value="numero"/>"  maxlength="10" class="form-control" required>
+<input type="text" name="numero" id="numero"  
+value="<s:property value="numero"/>"  maxlength="10" class="form-control" required>
 </div>
 
 <div class="col-md-4">
 <label>Colonia</label>
-<input type="text" name="colonia" id="colonia"  value="<s:property value="colonia"/>"  maxlength="50" class="form-control" required>
+<input type="text" name="colonia" id="colonia"  
+value="<s:property value="colonia"/>"  maxlength="50" class="form-control" required>
 </div>
 
 </div>
@@ -126,17 +147,20 @@ font-size:13px;
 
 <div class="col-md-4">
 <label>Ciudad</label>
-<input type="text" name="ciudad" id="ciudad"  value="<s:property value="ciudad"/>"  maxlength="50" class="form-control" required>
+<input type="text" name="ciudad" id="ciudad"  
+value="<s:property value="ciudad"/>"  maxlength="50" class="form-control" required>
 </div>
 
 <div class="col-md-4">
 <label>Estado</label>
-<input type="text" name="estado" id="estado"  value="<s:property value="estado"/>"  maxlength="50" class="form-control" required>
+<input type="text" name="estado" id="estado"  
+value="<s:property value="estado"/>"  maxlength="50" class="form-control" required>
 </div>
 
 <div class="col-md-4">
 <label>Código Postal</label>
-<input type="text" name="codpostal" id="codpostal"  value="<s:property value="codpostal"/>"  maxlength="20" class="form-control" required>
+<input type="text" name="codpostal" id="codpostal"  
+value="<s:property value="codpostal"/>"  maxlength="20" class="form-control" required>
 </div>
 
 </div>

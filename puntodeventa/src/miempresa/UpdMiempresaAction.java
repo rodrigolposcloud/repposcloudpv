@@ -48,7 +48,7 @@ public class UpdMiempresaAction extends ActionSupport {
 			      try {
 
 			    	  sqlQuery =" UPDATE  puntoventa.tblempresa SET " +
-			    	  " NOMEMPRESA='"+nomempresa+", RAZONSOCIAL= '"+razonsocial+"', TELEFONO= '"+telefono+"', RFC= '"+rfc+"', DOMICILIO= '"+domicilio+"', ESTATUS= 'A'," +
+			    	  " NOMEMPRESA='"+nomempresa+"', RAZONSOCIAL= '"+razonsocial+"', TELEFONO= '"+telefono+"', RFC= '"+rfc+"', DOMICILIO= '"+domicilio+"', ESTATUS= 'ALTA'," +
 			    	  " CORREO = '"+correo+"', NUMERO= '"+numero+"', COLONIA= '"+colonia+"', CIUDAD= '" + ciudad +"', ESTADO= '"+ estado+"', CODPOSTAL = '"+codpostal+"'"+
 			    	  " WHERE IDEMPRESA = "+ idempresa;
 				      System.out.println("SE EJECUTO TRANSACTION::::"+sqlQuery);	   
