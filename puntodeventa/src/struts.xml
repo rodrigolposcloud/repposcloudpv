@@ -456,6 +456,16 @@
 			</result>				 
         </action>
 
+		<!-- lista de folios de tickes de venta-->
+ 		<action name="listafoliosdo" class="administracion.folios.ListaFoliosAction">
+		<interceptor-ref name="secureStack"/>
+            <result name="success">/Administracion/Folios/ListaFolios.jsp</result>
+            <result name="inicio">/acceso/MensajeX.html</result>
+			<result name="homeaction" type="redirectAction">
+				<param name="actionName">homeaction</param>
+				<param name="namespace">/</param>
+			</result>				 
+        </action>
 
 
     </package>
