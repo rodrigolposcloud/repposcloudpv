@@ -467,6 +467,43 @@
 			</result>				 
         </action>
 
+		<!-- Pantalla de Registro de  foliatura -->
+		<!-- Ejecuta el action listaempresas para llena la lista de empresas  -->
+		<!-- para registrar la foliatura -->		
+		<action name="foliosdo" class="administracion.empresas.ListaEmpresasAction">
+		<interceptor-ref name="secureStack"/>
+            <result name="success">/Administracion/Folios/Folios.jsp</result>
+            <result name="inicio">/acceso/MensajeX.html</result>
+			<result name="homeaction" type="redirectAction">
+				<param name="actionName">homeaction</param>
+				<param name="namespace">/</param>
+			</result>				 
+        </action>
+
+		<!-- Registra nuevos folios para tickes de venta -->
+  		<action name="foliosAction" class="administracion.folios.FoliosAction">
+		<interceptor-ref name="secureStack"/>
+            <result name="success">/general/MensajeFO.jsp</result>
+             <result name="inicio">/acceso/MensajeX.html</result>
+			<result name="homeaction" type="redirectAction">
+				<param name="actionName">homeaction</param>
+				<param name="namespace">/</param>
+			</result>				 
+        </action>
+
+		<!-- trae Informacion de la foliatutura tickes de venta por empresa , para actualizar datos -->
+  		<action name="editarfolios" class="administracion.folios.ConFoliaturaAction">
+		<interceptor-ref name="secureStack"/>
+            <result name="success">/Administracion/Folios/FoliosUpd.jsp</result>
+             <result name="inicio">/acceso/MensajeX.html</result>
+			<result name="homeaction" type="redirectAction">
+				<param name="actionName">homeaction</param>
+				<param name="namespace">/</param>
+			</result>				 
+        </action>	
+
+
+
 
     </package>
 
